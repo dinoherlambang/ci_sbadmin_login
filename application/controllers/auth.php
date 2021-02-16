@@ -11,7 +11,8 @@ class Auth extends CI_Controller
 
     public function index()
     {
-        $this->load->view('templates/auth_header');
+        $data['title'] = 'Login Page';
+        $this->load->view('templates/auth_header', $data);
         $this->load->view('auth/login');
         $this->load->view('templates/auth_footer');
     }
@@ -19,7 +20,9 @@ class Auth extends CI_Controller
     public function registration()
     {
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[users.email]', [
+            'is_unique' => 'Email has already registered'
+        ]);
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
             'matches' => 'Password not match',
             'min_length' => 'Password too short'
@@ -44,6 +47,9 @@ class Auth extends CI_Controller
             ];
 
             $this->db->insert('users', $data);
+            $this->session->set_flashdata('message', '
+                <div class="alert alert-success" role="alert">Data creation already saved!</div>
+            ');
             redirect('auth');
         }
     }
