@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2021 at 09:08 AM
+-- Generation Time: Feb 16, 2021 at 01:32 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.15
 
@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
@@ -40,19 +40,19 @@ CREATE TABLE `user` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_role`
+-- Table structure for table `users_role`
 --
 
-CREATE TABLE `user_role` (
+CREATE TABLE `users_role` (
   `id` int(11) NOT NULL,
   `role` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_role`
+-- Dumping data for table `users_role`
 --
 
-INSERT INTO `user_role` (`id`, `role`) VALUES
+INSERT INTO `users_role` (`id`, `role`) VALUES
 (1, 'Administrator'),
 (2, 'Member');
 
@@ -61,15 +61,15 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 --
 
 --
--- Indexes for table `user`
+-- Indexes for table `users`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_role`
+-- Indexes for table `users_role`
 --
-ALTER TABLE `user_role`
+ALTER TABLE `users_role`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -77,14 +77,14 @@ ALTER TABLE `user_role`
 --
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `user_role`
+-- AUTO_INCREMENT for table `users_role`
 --
-ALTER TABLE `user_role`
+ALTER TABLE `users_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
